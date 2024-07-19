@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>取り組み一覧 - 実行バンドプロジェクト</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="flex flex-col min-h-screen bg-gradient-to-r from-blue-100 to-indigo-100">
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-4 shadow-lg fixed w-full top-0 z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">実行バンドプロジェクト</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="index.html#home" class="hover:text-blue-200 transition duration-300">ホーム</a></li>
+                    <li><a href="index.html#declare" class="hover:text-blue-200 transition duration-300">目標宣言</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition duration-300">取り組み一覧</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow mt-16">
+        <section id="activities" class="container mx-auto mt-8 p-4">
+            <h2 class="text-3xl font-bold mb-4 text-indigo-800 text-center">取り組み一覧</h2>
+            <div id="band-tabs" class="mb-4 flex justify-center">
+                <!-- バンドのタブがここに動的に追加されます -->
+            </div>
+            <div id="activities-list" class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                <!-- 活動リストがここに動的に追加されます -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-white p-4 mt-8">
+        <div class="container mx-auto text-center">
+            <h3 class="text-xl font-semibold mb-2">コンタクト情報</h3>
+            <p>インスタ: :cayennheart_</p>
+            <p class="mt-4">&copy; 2024 実行バンドプロジェクト. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

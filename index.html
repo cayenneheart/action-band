@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>実行バンドプロジェクト</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="flex flex-col min-h-screen bg-gradient-to-r from-blue-100 to-indigo-100">
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-4 shadow-lg fixed w-full top-0 z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">実行バンドプロジェクト</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#home" class="hover:text-blue-200 transition duration-300">ホーム</a></li>
+                    <li><a href="#declare" class="hover:text-blue-200 transition duration-300">目標宣言</a></li>
+                    <li><a href="activities.html" class="hover:text-blue-200 transition duration-300">取り組み一覧</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow mt-16">
+        <section id="home" class="container mx-auto mt-8 p-4">
+            <div class="text-center">
+                <h2 class="text-4xl font-bold mb-4 text-indigo-800">実行バンドプロジェクトへようこそ</h2>
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                  実行バンドプロジェクトとは「２０歳になるまでに知っておきたかったこと」という本に出てくる一つのプロジェクトです。​
+
+        
+                </p>
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                  実行バンドというインセンティブを得ることによって​
+              </p>
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                  「今までやろうやろうと言ってたけどやってなかったこと」をやってみよう！という企画です​
+       
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    皆さんが１歩を踏み出すきっかけになればと思っています。このWEBサイトでは目標を宣言したり、そのバンドがたどってきた歴史を見るのに使ってください。
+                </p>
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    また以下に注意してください:
+                    <ul class="list-disc list-inside mt-2 text-left mx-auto max-w-2xl">
+                        <li>名前は本名でなくて良いですが、ニックネームとして呼ばれて恥ずかしくないものにしてください</li>
+                        <li>ユーザー登録をしないので目標取り消しを誰でもできてしまうので本人以外は押さないように注意してください</li>
+                    </ul>
+                </p>
+            </div>
+            <div class="flex justify-center mt-8">
+                <div class="bg-white p-6 rounded-lg shadow-md w-full md:w-2/3 lg:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-2 text-indigo-700">プロジェクトのやり方</h3>
+                    <ol class="list-decimal list-inside mb-4 text-gray-700">
+                        <li>友達などから実行バンドを引き継ぐ</li>
+                        <li>目標を決めて宣言する</li>
+                        <li>実行期間を設定する</li>
+                        <li>目標達成に向けて行動する</li>
+                        <li>行動したら日記を書く</li>
+                        <li>達成したらバンドを渡してきた人に報告する</li>
+                        <li>友達に達成ボタンを押してもらう</li>
+                        <li>次の人にバトンを渡す</li>
+                    </ol>
+                    <div class="text-center">
+                        <a href="#declare" class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-6 py-2 rounded-full hover:from-blue-600 hover:to-indigo-600 transition duration-300 shadow-md">目標を宣言する</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="declare" class="container mx-auto mt-8 p-4">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold mb-4 text-indigo-800">目標を宣言する</h2>
+            </div>
+            <form id="goal-form" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+                <div class="mb-4">
+                    <label for="goal" class="block mb-2 text-indigo-700">実行したいこと</label>
+                    <input type="text" id="goal" required class="w-full p-2 border border-indigo-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <div class="mb-4">
+                    <label for="deadline" class="block mb-2 text-indigo-700">目標期日</label>
+                    <input type="date" id="deadline" required class="w-full p-2 border border-indigo-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <div class="mb-4">
+                    <label for="band" class="block mb-2 text-indigo-700">使用する実行バンド</label>
+                    <select id="band" required class="w-full p-2 border border-indigo-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="">選択してください</option>
+                    </select>
+                </div>
+                <button type="submit" class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-6 py-2 rounded-full hover:from-blue-600 hover:to-indigo-600 transition duration-300 shadow-md">
+                    宣言する
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-white p-4 mt-8">
+        <div class="container mx-auto text-center">
+            <h3 class="text-xl font-semibold mb-2">コンタクト情報</h3>
+            <p>インスタ:cayennheart_</p>
+            <p class="mt-4">&copy; 2024 実行バンドプロジェクト. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
