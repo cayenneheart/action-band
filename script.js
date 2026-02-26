@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // XSS対策: HTMLエスケープ関数
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
   const goalForm = document.getElementById('goal-form');
   const activitiesList = document.getElementById('activities-list');
   const bandSelect = document.getElementById('band');
@@ -32,12 +39,12 @@ document.addEventListener('DOMContentLoaded', function() {
       const activityElement = document.createElement('div');
       activityElement.className = 'activity-card';
       activityElement.innerHTML = `
-        <h3>${activity.user}の目標</h3>
-        <p>${activity.goal}</p>
-        <p>期限: ${activity.deadline}</p>
-        <p>バンド: ${activity.band}</p>
+        <h3>${escapeHtml(activity.user)}の目標</h3>
+        <p>${escapeHtml(activity.goal)}</p>
+        <p>期限: ${escapeHtml(activity.deadline)}</p>
+        <p>バンド: ${escapeHtml(activity.band)}</p>
         <p>状態: ${activity.completed ? '<span class="text-green-600">達成済み</span>' : '<span class="text-blue-600">進行中</span>'}</p>
-        <p>開始日: ${activity.date}</p>
+        <p>開始日: ${escapeHtml(activity.date)}</p>
         ${activity.completed 
           ? `<button onclick="undoComplete(${activity.id})" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 mt-2">取り消し</button>`
           : `<button onclick="completeActivity(${activity.id})" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-2">達成報告</button>`
@@ -116,13 +123,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!activity || !activityDetails) return;
 
     activityDetails.innerHTML = `
-      <h2 class="text-3xl font-bold mb-4 text-indigo-800">${activity.user}の目標詳細</h2>
-      <p class="mb-2"><strong>目標:</strong> ${activity.goal}</p>
-      <p class="mb-2"><strong>期限:</strong> ${activity.deadline}</p>
-      <p class="mb-2"><strong>バンド:</strong> ${activity.band}</p>
+      <h2 class="text-3xl font-bold mb-4 text-indigo-800">${escapeHtml(activity.user)}の目標詳細</h2>
+      <p class="mb-2"><strong>目標:</strong> ${escapeHtml(activity.goal)}</p>
+      <p class="mb-2"><strong>期限:</strong> ${escapeHtml(activity.deadline)}</p>
+      <p class="mb-2"><strong>バンド:</strong> ${escapeHtml(activity.band)}</p>
       <p class="mb-2"><strong>状態:</strong> ${activity.completed ? '<span class="text-green-600">達成済み</span>' : '<span class="text-blue-600">進行中</span>'}</p>
-      <p class="mb-2"><strong>開始日:</strong> ${activity.date}</p>
-      <p class="mb-2"><strong>取り組み詳細:</strong> ${activity.details || '詳細はまだ記録されていません。'}</p>
+      <p class="mb-2"><strong>開始日:</strong> ${escapeHtml(activity.date)}</p>
+      <p class="mb-2"><strong>取り組み詳細:</strong> ${escapeHtml(activity.details) || '詳細はまだ記録されていません。'}</p>
     `;
   }
 
@@ -132,8 +139,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     diaryEntries.innerHTML = activity.diary.map(entry => `
       <div class="bg-white p-4 rounded-lg shadow">
-        <p class="text-sm text-gray-600">${entry.date}</p>
-        <p class="mt-2">${entry.content}</p>
+        <p class="text-sm text-gray-600">${escapeHtml(entry.date)}</p>
+        <p class="mt-2">${escapeHtml(entry.content)}</p>
       </div>
     `).join('');
   }
